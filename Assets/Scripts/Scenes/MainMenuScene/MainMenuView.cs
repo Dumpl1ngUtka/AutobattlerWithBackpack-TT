@@ -6,7 +6,6 @@ namespace MainMenuScene
     {
         public void Enter()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

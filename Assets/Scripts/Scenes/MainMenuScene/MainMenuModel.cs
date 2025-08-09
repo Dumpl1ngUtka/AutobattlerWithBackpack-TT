@@ -11,7 +11,7 @@ namespace MainMenuScene
         
         public void StartBattle()
         {
-            //SceneManager.Instance.ChangeScene();
+            SceneManager.Instance.OpenBattleScene();
         }
     }
 }

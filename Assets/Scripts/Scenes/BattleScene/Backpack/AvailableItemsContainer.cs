@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
 using Items;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace BattleScene.Backpack
 {
@@ -9,32 +9,33 @@ namespace BattleScene.Backpack
     {
         [SerializeField] private DraggableItem _itemPrefab; 
         [SerializeField] private RectTransform _container;
-        private RectTransform _rectTransform;
-        private List<DraggableItem> _items;
+        
+        public List<DraggableItem> Items { get; private set; }
 
         public void Reset()
         {
-            _items = new List<DraggableItem>();
-            _rectTransform = GetComponent<RectTransform>();
+            Items = new List<DraggableItem>();
             ClearContainer();
+        }
+
+        public void AddRange(Item[] items)
+        {
+            foreach (var item in items) 
+                Add(item);
         }
 
         public void Add(Item item)
         {
             var instantiate = Instantiate(_itemPrefab, _container);
             instantiate.Init(item, this);
+            Items.Add(instantiate);
+            UpdatePositionsInContainer();
         }
 
         public void Remove(DraggableItem item)
         {
-            _items.Remove(item);
-        }
-
-        public void Hide(DraggableItem itemToHide)
-        {
-            foreach (var item in _items)
-                if (item == itemToHide)
-                    itemToHide.gameObject.SetActive(false);
+            Items.Remove(item);
+            UpdatePositionsInContainer();
         }
 
         private void ClearContainer()
@@ -45,11 +46,13 @@ namespace BattleScene.Backpack
 
         private void UpdatePositionsInContainer()
         {
-            var length = _items.Count;
-            var space = _rectTransform.rect.width / length;
-            foreach (var item in _items)
+            var width = _container.rect.width;
+            var space = width / (Items.Count + 1);
+            var index = 0;
+            foreach (var item in Items)
             {
-                //item.RectTransform.rect.position = 
+                var horizontalPosition = space * ++index - width / 2;
+                item.SetTargetPosition(new Vector2(horizontalPosition, 0));
             }
         }
     }

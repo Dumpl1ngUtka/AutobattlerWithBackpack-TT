@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Items
@@ -7,30 +9,27 @@ namespace Items
     {
         [Header("Main Item Settings")]
         public Sprite Sprite;
-        public string Name;
+        public string Key;
         [Min(0)] public int Level = 1;
         [Header("Backpack Settings")] 
         public Item CombinationResult ;
         [Header("BattleSettings")]
         public bool IsAutoUse;
+        public ActionType ActionType;
         [Min(0)] public float ReloadTime;
         [Min(0)] public float Damage;
-        [Min(0)] public float Range;
-        public ItemAction Action;
+
+        private static Item[] _items;
+        public static List<Item> GetItemsByKey(string key)
+        {
+            _items ??= Resources.LoadAll<Item>("Configs/Items");
+            return _items.Where(item => item.Key == key).ToList();
+        }
     }
 
-    public abstract class ItemAction
+    public enum ActionType
     {
-        public string Name;
-    }
-
-    public class HealAction : ItemAction
-    {
-        public int Heal;
-    }
-
-    public class AttackAction : ItemAction
-    {
-        public int DamageToAttack;
+        Attack,
+        Heal,
     }
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2249b78047453d049b45c0d84e111dce, type: 3}
+  m_Name: GunLv4
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 1567995540047959448, guid: bddba67f22b0bd34c8073563baf9ee33, type: 3}
+  Key: gun
+  Level: 4
+  CombinationResult: {fileID: 0}
+  IsAutoUse: 1
+  ActionType: 0
+  ReloadTime: 2
+  Damage: 25

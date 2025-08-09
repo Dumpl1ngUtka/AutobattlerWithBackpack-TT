@@ -1,25 +1,49 @@
+using System;
+using BattleScene.Backpack;
 using UnityEngine;
 
 namespace BattleScene
 {
-    public class BattleSceneController : MonoBehaviour, ISceneController
+    public class BattleSceneController : SceneController
     {
+        private const int ItemForSpawnCount = 3;
+        
         [SerializeField] private BattleSceneView _view;  
         private BattleSceneModel _model;
+
+        private Action<DraggableItem> Clicked;
         
-        public void OnEnter()
+        public override void OnEnter()
         {
             _model = new BattleSceneModel();
             _view.OnEnter();
             OpenBackpackPanel();
+            _view.RenderAvailableItems(_model.GetItemsForSpawn(ItemForSpawnCount));
+            Clicked += _view.GetItems()[0].Clicked;
+            foreach (var item in _view.GetItems())
+            {
+                //item.Clicked += ctx => 
+            }
+
+            
         }
 
-        public void OnExit()
+        public override void OnExit()
         {
             
         }
         
         public void OpenBackpackPanel()
+        {
+            _view.SetBackpackVisible(true);
+        }
+
+        public void Reroll()
+        {
+            _view.RenderAvailableItems(_model.GetItemsForSpawn(ItemForSpawnCount));
+        }
+
+        public void CloseBackpackPanel()
         {
             _view.SetBackpackVisible(false);
         }

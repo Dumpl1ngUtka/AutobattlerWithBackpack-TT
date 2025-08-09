@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{541a172c-fd6b-14f4-9be1-62b4f5fd5cd9}</ProjectGuid>
+    <ProjectGuid>{e7e590cd-b2ef-8ddd-00ff-e8cf3407574a}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -46,14 +46,19 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.50f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Scenes\BattleScene\Backpack\IItemHolder.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
+    <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\Scripts\Scenes\ISceneController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\Scripts\Scenes\MainMenuScene\MainMenuView.cs" />
+    <Compile Include="Assets\Scripts\Scenes\BattleScene\Enemy\LevelPreset.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
@@ -64,22 +69,32 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
+    <Compile Include="Assets\Scripts\Scenes\BattleScene\BattleSceneView.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\Scripts\Managers\Bootstrapper.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\Scripts\Scenes\MainMenuScene\MainMenuModel.cs" />
+    <Compile Include="Assets\Scripts\Scenes\MainMenuScene\MainMenuController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\Scripts\Scenes\BattleScene\Backpack\AvailableItemsContainer.cs" />
+    <Compile Include="Assets\Scripts\Managers\SceneManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\Scripts\Scenes\BattleScene\Backpack\DraggableItem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\Scripts\Scenes\BattleScene\BattleSceneModel.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\Scripts\Scenes\BattleScene\Enemy\Enemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
+    <Compile Include="Assets\Scripts\Scenes\BattleScene\BattleSceneController.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Roboto-Bold - License.txt" />
@@ -459,16 +474,16 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.50f1\Editor\Data\Managed\UnityEngine\UnityEditor.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\PackageCache\com.unity.collections@56bff8827a7e\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\PackageCache\com.unity.collections@56bff8827a7e\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\PackageCache\com.unity.ext.nunit@031a54704bff\net40\unity-custom\nunit.framework.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\PackageCache\com.unity.ext.nunit@031a54704bff\net40\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\PackageCache\com.unity.visualscripting@7dcdc439b230\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\PackageCache\com.unity.visualscripting@7dcdc439b230\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Cecil">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.50f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
@@ -843,202 +858,202 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.50f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.2D.Runtime">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.2D.Runtime.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.2D.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem.ForUI">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Searcher.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="PsdPlugin">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Path.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.Common.Path.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.Common.Path.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.IK.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.IK.Runtime">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor.Shared">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.Shared.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.Shared.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Aseprite.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Multiplayer.Center.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.Multiplayer.Center.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.Multiplayer.Center.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
     </Reference>
     <Reference Include="PPv2URPConverters">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Aseprite.Common">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.Aseprite.Common.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.Aseprite.Common.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Extras.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Multiplayer.Center.Common">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.Multiplayer.Center.Common.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.Multiplayer.Center.Common.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Extras">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Runtime">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Psdimporter.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Runtime">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Runtime.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem">
-      <HintPath>D:\Unity_projects\AutobattlerWithBackpack\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+      <HintPath>D:\Unity_projects\AutobattlerWithBackpack-TT\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

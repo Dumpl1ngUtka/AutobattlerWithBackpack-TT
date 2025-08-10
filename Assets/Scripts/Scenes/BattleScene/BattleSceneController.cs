@@ -10,8 +10,6 @@ namespace BattleScene
         
         [SerializeField] private BattleSceneView _view;  
         private BattleSceneModel _model;
-
-        private Action<DraggableItem> Clicked;
         
         public override void OnEnter()
         {
@@ -19,13 +17,6 @@ namespace BattleScene
             _view.OnEnter();
             OpenBackpackPanel();
             _view.RenderAvailableItems(_model.GetItemsForSpawn(ItemForSpawnCount));
-            Clicked += _view.GetItems()[0].Clicked;
-            foreach (var item in _view.GetItems())
-            {
-                //item.Clicked += ctx => 
-            }
-
-            
         }
 
         public override void OnExit()

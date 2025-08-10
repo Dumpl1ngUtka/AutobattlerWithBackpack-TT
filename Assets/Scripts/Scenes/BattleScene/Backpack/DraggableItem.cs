@@ -1,5 +1,6 @@
 using System;
 using Items;
+using Managers.PanelManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -15,18 +16,22 @@ namespace BattleScene.Backpack
         private Vector2 _targetPosition;
         private float _moveSpeed = 5f;
         private bool _isDragging;
+        private CanvasGroup _canvasGroup;
         
-        public Action<DraggableItem> Clicked;
-        public Action<DraggableItem> BeginDrag;
-        public Action<DraggableItem> EndDrag;
-        public Action<DraggableItem, IItemHolder> DraggingOverHolder;
-        
+        public Item Item => _item;
+
+        private void OnEnable()
+        {
+            _rectTransform = GetComponent<RectTransform>();
+            //_image.alphaHitTestMinimumThreshold = 0.5f;
+            _canvasGroup = GetComponent<CanvasGroup>();
+        }
+
         public void Init(Item item, IItemHolder holder)
         {
             _item = item;
             _image.sprite = _item.Sprite;
             _holder = holder;
-            _rectTransform = GetComponent<RectTransform>();
             _targetPosition = _rectTransform.anchoredPosition;
             _isDragging = false;
         }
@@ -38,8 +43,8 @@ namespace BattleScene.Backpack
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            Debug.Log("aaa");
             _isDragging = true;
+            _canvasGroup.blocksRaycasts = false;
             //_holder.Hide(this);
         }
 
@@ -51,6 +56,7 @@ namespace BattleScene.Backpack
         public void OnEndDrag(PointerEventData eventData)
         {
             _isDragging = false;
+            _canvasGroup.blocksRaycasts = true;
             var itemHolder = eventData.pointerCurrentRaycast.gameObject?.GetComponent<IItemHolder>();
                 
             if (itemHolder != null)
@@ -58,9 +64,20 @@ namespace BattleScene.Backpack
                 if (itemHolder == _holder)
                     return;
                 
-                itemHolder.Add(_item);
-                _holder.Remove(this);
-                _holder = itemHolder;
+                itemHolder.Add(this);
+            }
+            
+            var otherItem = eventData.pointerCurrentRaycast.gameObject?.GetComponent<DraggableItem>();
+
+            if (otherItem != null)
+            {
+                if (otherItem._item.Key == _item.Key 
+                    && otherItem._item.Level == _item.Level
+                    && otherItem._item.CombinationResult != null)
+                {
+                    otherItem.Init(_item.CombinationResult, otherItem._holder);
+                    _holder.Remove(this);
+                }
             }
         }
 
@@ -76,11 +93,9 @@ namespace BattleScene.Backpack
             if (_isDragging)
                 return;
             
-            Debug.Log(_item.Key);
+            PanelManager.Instance.InstantiateItemInfoPanel(_item);
         }
 
-        public void OnPointerDown(PointerEventData eventData)
-        {
-        }
+        public void OnPointerDown(PointerEventData eventData) { }
     }
 }

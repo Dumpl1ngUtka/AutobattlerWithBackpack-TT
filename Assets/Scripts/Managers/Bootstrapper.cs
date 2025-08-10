@@ -1,8 +1,10 @@
 using System;
 using BattleScene;
 using MainMenuScene;
+using Managers.PanelManager.Panels;
 using Managers.SaveLoadManager;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Managers
 {
@@ -11,11 +13,15 @@ namespace Managers
         [Header("Scenes")]
         [SerializeField] private MainMenuController _mainMenuScene;
         [SerializeField] private BattleSceneController _battleScene;
+        [FormerlySerializedAs("_infoPanelPrefab")]
+        [Header("Panels")]
+        [SerializeField] private ItemInfoPanel _itemInfoPanelPrefab;
         
         private void Awake()
         {
             CreateSceneManager();
             CreateSaveLoadManager();
+            CreatePanelManager();
         }
 
         private void Start()
@@ -35,8 +41,16 @@ namespace Managers
         {
             var jsonSaveLoadService = new JsonSaveDataManager();
             var obj = new GameObject("SaveLoadManager");
-            var service = obj.AddComponent<SaveLoadManager.SaveLoadManager>();
-            service.Init(jsonSaveLoadService);
+            var manager = obj.AddComponent<SaveLoadManager.SaveLoadManager>();
+            manager.Init(jsonSaveLoadService);
+            DontDestroyOnLoad(obj);
+        }
+        
+        private void CreatePanelManager()
+        {
+            var obj = new GameObject("PanelManager");
+            var manager = obj.AddComponent<PanelManager.PanelManager>();
+            manager.Init(_itemInfoPanelPrefab);
             DontDestroyOnLoad(obj);
         }
     }

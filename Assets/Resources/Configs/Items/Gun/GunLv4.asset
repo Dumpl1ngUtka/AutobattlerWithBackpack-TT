@@ -16,7 +16,21 @@ MonoBehaviour:
   Key: gun
   Level: 4
   CombinationResult: {fileID: 0}
+  Slots:
+    c0:
+      x: 0
+      y: 0
+      z: 0
+    c1:
+      x: 1
+      y: 1
+      z: 1
+    c2:
+      x: 0
+      y: 0
+      z: 0
   IsAutoUse: 1
   ActionType: 0
+  TargetType: 0
   ReloadTime: 2
   Damage: 25

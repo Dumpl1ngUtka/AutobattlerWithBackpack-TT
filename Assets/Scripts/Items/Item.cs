@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Items
@@ -12,10 +13,12 @@ namespace Items
         public string Key;
         [Min(0)] public int Level = 1;
         [Header("Backpack Settings")] 
-        public Item CombinationResult ;
+        public Item CombinationResult;
+        public bool3x3 Slots;
         [Header("BattleSettings")]
         public bool IsAutoUse;
         public ActionType ActionType;
+        public TargetType TargetType;
         [Min(0)] public float ReloadTime;
         [Min(0)] public float Damage;
 
@@ -25,11 +28,5 @@ namespace Items
             _items ??= Resources.LoadAll<Item>("Configs/Items");
             return _items.Where(item => item.Key == key).ToList();
         }
-    }
-
-    public enum ActionType
-    {
-        Attack,
-        Heal,
     }
 }

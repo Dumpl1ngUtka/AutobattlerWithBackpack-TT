@@ -4,7 +4,7 @@ namespace BattleScene.Backpack
 {
     public interface IItemHolder
     {
-        public void Add(Item item);
+        public void Add(DraggableItem item);
         public void Remove(DraggableItem item);
     }
 }

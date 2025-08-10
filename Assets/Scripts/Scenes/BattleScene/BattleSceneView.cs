@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using BattleScene.Backpack;
 using Items;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace BattleScene
 {
     public class BattleSceneView : MonoBehaviour
     {
         [Header("Backpack")]
+        [SerializeField] private DraggableItem _draggableItemPrefab; 
         [SerializeField] private RectTransform _backpackPanel;
         [SerializeField] private float _animationDuration;
         [SerializeField] private AvailableItemsContainer _availableItemsContainer;
+        [SerializeField] private RectTransform _itemsContainer;
         private float _backpackHideVerticalPosition;
         private float _backpackVisibleVerticalPosition;
         
@@ -25,7 +28,16 @@ namespace BattleScene
         public void RenderAvailableItems(Item[] items)
         {
             _availableItemsContainer.Reset();
-            _availableItemsContainer.AddRange(items);
+            
+            var draggableItems = new List<DraggableItem>();
+            foreach (var item in items)
+            {
+                var draggableItem = Instantiate(_draggableItemPrefab, _itemsContainer);
+                draggableItem.Init(item, _availableItemsContainer);
+                draggableItems.Add(draggableItem);
+            }
+            
+            _availableItemsContainer.AddRange(draggableItems);
         }
 
         public List<DraggableItem> GetItems()

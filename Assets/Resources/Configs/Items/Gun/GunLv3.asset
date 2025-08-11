@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2249b78047453d049b45c0d84e111dce, type: 3}
   m_Name: GunLv3
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 1567995540047959448, guid: bddba67f22b0bd34c8073563baf9ee33, type: 3}
+  Sprite: {fileID: 5543941588292853863, guid: 1121ff1ea16357844b73313267cfbf79, type: 3}
   Key: gun
   Level: 3
-  CombinationResult: {fileID: 11400000, guid: fc2fe57a011424141913eaf276499ed4, type: 2}
+  CombinationResult: {fileID: 0}
   Slots:
     c0:
       x: 0

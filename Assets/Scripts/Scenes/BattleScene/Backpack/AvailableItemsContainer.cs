@@ -23,16 +23,16 @@ namespace BattleScene.Backpack
                 Add(item);
         }
 
-        public void Add(DraggableItem item)
+        public bool Add(DraggableItem item)
         {
             Items.Add(item);
             UpdatePositionsInContainer();
+            return true;
         }
 
         public void Remove(DraggableItem item)
         {
             Items.Remove(item);
-            Destroy(item.gameObject);
             UpdatePositionsInContainer();
         }
 
@@ -46,7 +46,7 @@ namespace BattleScene.Backpack
 
         private void UpdatePositionsInContainer()
         {
-            var verticalPosition = _container.rect.center.y;
+            var verticalPosition = -_container.position.y;
             var width = _container.rect.width;
             var space = width / (Items.Count + 1);
             var index = 0;

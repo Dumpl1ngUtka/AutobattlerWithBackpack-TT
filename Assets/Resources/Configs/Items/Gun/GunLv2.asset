@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2249b78047453d049b45c0d84e111dce, type: 3}
   m_Name: GunLv2
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 1567995540047959448, guid: bddba67f22b0bd34c8073563baf9ee33, type: 3}
+  Sprite: {fileID: 1202984965197363600, guid: 1121ff1ea16357844b73313267cfbf79, type: 3}
   Key: gun
   Level: 2
   CombinationResult: {fileID: 11400000, guid: 611fbf524e17add4ba19f5209857f06e, type: 2}

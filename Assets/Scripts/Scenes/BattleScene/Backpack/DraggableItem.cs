@@ -12,7 +12,7 @@ namespace BattleScene.Backpack
         [SerializeField] private Image _image;
         private RectTransform _rectTransform;
         private Item _item;
-        private IItemHolder _holder;
+        private IItemHolder _currentHolder;
         private Vector2 _targetPosition;
         private float _moveSpeed = 5f;
         private bool _isDragging;
@@ -23,7 +23,7 @@ namespace BattleScene.Backpack
         private void OnEnable()
         {
             _rectTransform = GetComponent<RectTransform>();
-            //_image.alphaHitTestMinimumThreshold = 0.5f;
+            _image.alphaHitTestMinimumThreshold = 0.5f;
             _canvasGroup = GetComponent<CanvasGroup>();
         }
 
@@ -31,14 +31,19 @@ namespace BattleScene.Backpack
         {
             _item = item;
             _image.sprite = _item.Sprite;
-            _holder = holder;
-            _targetPosition = _rectTransform.anchoredPosition;
             _isDragging = false;
+            SetHolder(holder);
+            SetTargetPosition(_rectTransform.anchoredPosition);
         }
 
         public void SetTargetPosition(Vector2 targetPosition)
         {
             _targetPosition = targetPosition;
+        }
+
+        public void SetHolder(IItemHolder holder)
+        {
+            _currentHolder = holder;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -55,16 +60,18 @@ namespace BattleScene.Backpack
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            _isDragging = false;
-            _canvasGroup.blocksRaycasts = true;
             var itemHolder = eventData.pointerCurrentRaycast.gameObject?.GetComponent<IItemHolder>();
                 
             if (itemHolder != null)
             {
-                if (itemHolder == _holder)
-                    return;
-                
-                itemHolder.Add(this);
+                if (itemHolder != _currentHolder)
+                {
+                    if (itemHolder.Add(this))
+                    {
+                        _currentHolder.Remove(this);
+                        _currentHolder = itemHolder;
+                    }
+                }
             }
             
             var otherItem = eventData.pointerCurrentRaycast.gameObject?.GetComponent<DraggableItem>();
@@ -75,10 +82,14 @@ namespace BattleScene.Backpack
                     && otherItem._item.Level == _item.Level
                     && otherItem._item.CombinationResult != null)
                 {
-                    otherItem.Init(_item.CombinationResult, otherItem._holder);
-                    _holder.Remove(this);
+                    otherItem.Init(_item.CombinationResult, otherItem._currentHolder);
+                    _currentHolder.Remove(this);
+                    Destroy(gameObject);
                 }
             }
+            
+            _isDragging = false;
+            _canvasGroup.blocksRaycasts = true;
         }
 
         private void Update()

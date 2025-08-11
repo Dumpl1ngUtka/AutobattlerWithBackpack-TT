@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2249b78047453d049b45c0d84e111dce, type: 3}
   m_Name: PistolLv2
   m_EditorClassIdentifier: 
-  Sprite: {fileID: -2745480348480893641, guid: bddba67f22b0bd34c8073563baf9ee33, type: 3}
+  Sprite: {fileID: 3220665290143086019, guid: 1121ff1ea16357844b73313267cfbf79, type: 3}
   Key: pistol
   Level: 2
   CombinationResult: {fileID: 11400000, guid: 5d206a3132bb73348a81ef86c7a25767, type: 2}

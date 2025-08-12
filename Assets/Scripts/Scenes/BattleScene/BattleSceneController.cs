@@ -1,5 +1,5 @@
-using System;
-using BattleScene.Backpack;
+using BattleScene.Enemy;
+using BattleScene.Player;
 using UnityEngine;
 
 namespace BattleScene
@@ -8,15 +8,18 @@ namespace BattleScene
     {
         private const int ItemForSpawnCount = 3;
         
-        [SerializeField] private BattleSceneView _view;  
+        [SerializeField] private BattleSceneView _view;
+        [SerializeField] private PlayerHealth _player;
         private BattleSceneModel _model;
         
         public override void OnEnter()
         {
-            _model = new BattleSceneModel();
+            _model = new BattleSceneModel(this, _player);
             _view.OnEnter();
-            OpenBackpackPanel();
+            _view.SetBackpackVisible(true);
             _view.RenderAvailableItems(_model.GetItemsForSpawn(ItemForSpawnCount));
+            _view.CreateEnemyAgentsPool(_model.MaxEnemiesCount);
+            _model.AddAgent(_view.Agents);
         }
 
         public override void OnExit()
@@ -24,25 +27,42 @@ namespace BattleScene
             
         }
         
-        public void OpenBackpackPanel()
-        {
-            _view.SetBackpackVisible(true);
-        }
-
         public void Reroll()
         {
             _view.RenderAvailableItems(_model.GetItemsForSpawn(ItemForSpawnCount));
         }
 
-        public void CloseBackpackPanel()
-        {
-            _view.SetBackpackVisible(false);
-        }
-
         public void StartBattleButtonClick()
         {
             _view.SetBackpackVisible(false);
-            _model.StartWave();
+            _model.GetCurrentWaveData(out var enemies, out var delay);
+            _view.RenderItemForBattle();
+            _model.StartWave(_view.GetBattleItems());
+            _view.SpawnEnemies(enemies, delay);
+        }
+
+        public void GoToMainMenu()
+        {
+            _model.SwitchScene();
+        }
+
+        public void OnLose()
+        {
+            _view.ShowEndGamePanel(false);
+            _view.DestroyBattleItems();
+        }
+
+        public void OnWin()
+        {
+            _view.ShowEndGamePanel(true);
+            _view.DestroyBattleItems();
+        }
+
+        public void OnEndWave()
+        {
+            _view.SetBackpackVisible(true);
+            _view.RenderAvailableItems(_model.GetItemsForSpawn(ItemForSpawnCount));
+            _view.DestroyBattleItems();
         }
     }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   Sprite: {fileID: -6931339683150358059, guid: 1121ff1ea16357844b73313267cfbf79, type: 3}
   Key: bomb
   Level: 2
-  CombinationResult: {fileID: 11400000}
+  CombinationResult: {fileID: 0}
   Slots:
     c0:
       x: 0
@@ -32,5 +32,5 @@ MonoBehaviour:
   IsAutoUse: 0
   ActionType: 0
   TargetType: 0
-  ReloadTime: 0
-  Damage: 0
+  ReloadTime: 2
+  Damage: 20

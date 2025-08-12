@@ -44,7 +44,7 @@ namespace BattleScene.Backpack
             Items = new List<DraggableItem>();
         }
 
-        private void UpdatePositionsInContainer()
+        public void UpdatePositionsInContainer()
         {
             var verticalPosition = -_container.position.y;
             var width = _container.rect.width;

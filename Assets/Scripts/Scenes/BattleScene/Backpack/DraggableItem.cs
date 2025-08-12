@@ -1,4 +1,3 @@
-using System;
 using Items;
 using Managers.PanelManager;
 using UnityEngine;
@@ -10,7 +9,7 @@ namespace BattleScene.Backpack
     public class DraggableItem : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [SerializeField] private Image _image;
-        private RectTransform _rectTransform;
+        [SerializeField] private RectTransform _rectTransform;
         private Item _item;
         private IItemHolder _currentHolder;
         private Vector2 _targetPosition;
@@ -22,7 +21,6 @@ namespace BattleScene.Backpack
 
         private void OnEnable()
         {
-            _rectTransform = GetComponent<RectTransform>();
             _image.alphaHitTestMinimumThreshold = 0.5f;
             _canvasGroup = GetComponent<CanvasGroup>();
         }

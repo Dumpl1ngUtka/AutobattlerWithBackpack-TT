@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2832929558417002591}
   - component: {fileID: 5805619351418906914}
   m_Layer: 5
-  m_Name: ItemListPrefab
+  m_Name: DraggableItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 7811160092876854669}
+  _rectTransform: {fileID: 223982034764472465}
 --- !u!225 &5805619351418906914
 CanvasGroup:
   m_ObjectHideFlags: 0

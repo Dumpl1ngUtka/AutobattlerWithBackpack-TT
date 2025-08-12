@@ -10,5 +10,6 @@ namespace BattleScene.Enemy
         public int Health;
         public int Damage;
         public float Speed;
+        public float AttackDelay;
     }
 }

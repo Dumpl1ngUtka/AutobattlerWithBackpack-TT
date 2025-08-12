@@ -20,6 +20,11 @@ namespace BattleScene.Backpack
             _items = new Dictionary<DraggableItem, BackpackContainerCell>();
         }
 
+        public List<Item> GetItems()
+        {
+            return _items.Keys.Select(k => k.Item).ToList();
+        }
+
         public bool TryAdd(DraggableItem item, BackpackContainerCell targetCell)
         {
             var relevantCells = GetRelevantCells(item.Item.Slots, targetCell, _cells);

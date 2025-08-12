@@ -6,6 +6,7 @@ namespace Managers.SaveLoadManager
     public class SaveData
     {
         public int CurrentLevelIndex;
+        public int MaxLevelIndex;
         public string[] AvailableItems;
         
         public SaveData(int currentLevelIndex, string[] availableItems)
@@ -17,7 +18,8 @@ namespace Managers.SaveLoadManager
         public SaveData()
         {
             CurrentLevelIndex = 0;
-            AvailableItems = new string[2]{"pistol", "gun"};
+            AvailableItems = new string[5]{"pistol", "gun", "bomb", "heal", "coffee"};
+            MaxLevelIndex = 0;
         }
     }
 }

@@ -46,7 +46,7 @@ namespace BattleScene.Backpack
 
         public void UpdatePositionsInContainer()
         {
-            var verticalPosition = -_container.position.y;
+            var verticalPosition = _container.position.y - Screen.height * 0.5f;
             var width = _container.rect.width;
             var space = width / (Items.Count + 1);
             var index = 0;

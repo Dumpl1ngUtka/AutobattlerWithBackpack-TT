@@ -40,6 +40,7 @@ namespace BattleScene.Enemy
             _damage = enemy.Damage;
             _attackDelay = enemy.AttackDelay;
             _playerHealth = player;
+            _pathProgress = 0;
             OnHealthChanged?.Invoke(_currentHealth, _maxHealth);
         }
 

@@ -47,6 +47,7 @@ namespace BattleScene.Backpack
         public void OnBeginDrag(PointerEventData eventData)
         {
             _isDragging = true;
+            _rectTransform.anchoredPosition = eventData.position - new Vector2(Screen.width, Screen.height) / 2;
             _canvasGroup.blocksRaycasts = false;
             //_holder.Hide(this);
         }
